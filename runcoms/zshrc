@@ -5,9 +5,30 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...
+# Source Conda
+if [[ -s "${ZDOTDIR:-$HOME/.zprezto/conda.zsh}" ]]; then
+  source "${ZDOTDIR:-$HOME/.zprezto/conda.zsh}"
+fi
+
+# Source config
+if [[ -s "${ZDOTDIR:-$HOME/.zprezto/config.zsh}" ]]; then
+  source "${ZDOTDIR:-$HOME/.zprezto/config.zsh}"
+fi
+
+# Source aliases
+if [[ -s "${ZDOTDIR:-$HOME/.zprezto/aliases.zsh}" ]]; then
+  source "${ZDOTDIR:-$HOME/.zprezto/aliases.zsh}"
+fi
+
+# Source Environment variables
+if [[ -s "${ZDOTDIR:-$HOME/.zprezto/env.zsh}" ]]; then
+  source "${ZDOTDIR:-$HOME/.zprezto/env.zsh}"
+fi
