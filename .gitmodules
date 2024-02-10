@@ -29,3 +29,12 @@
 	path = modules/prompt/external/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
 	shallow = true
+[submodule "modules/conda-zsh-completion"]
+	path = "modules/conda-zsh-completion"
+	url = https://github.com/conda-incubator/conda-zsh-completion.git
+[submodule "modules/zsh-autocomplete"]
+	path = "modules/zsh-autocomplete"
+	url = https://github.com/marlonrichert/zsh-autocomplete.git
+[submodule "modules/zsh-autosuggestions"]
+	path = "modules/zsh-autosuggestions"
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
