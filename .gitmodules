@@ -38,3 +38,6 @@
 [submodule "modules/zsh-autosuggestions"]
 	path = "modules/zsh-autosuggestions"
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "modules/zsh-completions"]
+	path = modules/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git

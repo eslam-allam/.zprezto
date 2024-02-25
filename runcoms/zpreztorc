@@ -42,6 +42,7 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'syntax-highlighting' \
   'custom-completions' \
+  'zsh-completions' \
   'docker' \
   'conda-zsh-completion' \
   'zsh-autosuggestions' \
