@@ -14,5 +14,16 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
-
-
+## Java
+if [ -x "$(command -v java)" ]; then
+  java_home="$(readlink -f $(which java))"
+  java_bin_suffix='/bin/java'
+  jre_suffix='/jre'
+  if [[ $java_home == *$java_bin_suffix ]]; then
+      java_home=${java_home%"$java_bin_suffix"}
+      if [[ $java_home == *$jre_suffix ]]; then
+        java_home=${java_home%"$jre_suffix"}
+      fi
+      export JAVA_HOME=$java_home
+  fi
+fi
