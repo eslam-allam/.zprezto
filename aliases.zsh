@@ -8,6 +8,8 @@ alias env-config="${EDITOR} ~/.zprezto/env.zsh"
 alias v="open_editor_in_file $EDITOR"
 alias lv="open_editor_in_file ~/.local/bin/lvim"
 
+alias alt="sudo update-alternatives --config"
+
 if [ -x "$(command -v batcat)" ]; then
     alias bat="batcat"
 fi
