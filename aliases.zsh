@@ -15,8 +15,8 @@ if [ -x "$(command -v batcat)" ]; then
 fi
 
 if [ -x "$(command -v exa)" ]; then
-    alias ls="exa --icons"
-    alias la="exa --header --long --all --group --icons"
+    alias ls="eza --icons"
+    alias la="eza --header --long --all --group --icons"
 fi
 
 #if [ "$TERM" = "xterm-kitty" ]; then
