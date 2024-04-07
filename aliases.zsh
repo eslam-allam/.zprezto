@@ -14,7 +14,7 @@ if [ -x "$(command -v batcat)" ]; then
     alias bat="batcat"
 fi
 
-if [ -x "$(command -v exa)" ]; then
+if [ -x "$(command -v eza)" ]; then
     alias ls="eza --icons auto"
     alias la="eza --header --long --all --group --icons auto"
 fi
