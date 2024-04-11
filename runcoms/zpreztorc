@@ -38,8 +38,9 @@ zstyle ':prezto:load' pmodule \
   'spectrum' \
   'utility' \
   'history-substring-search' \
-  'prompt' \
+  'starship' \
   'git' \
+  'catpuccin-zsh-syntax' \
   'syntax-highlighting' \
   'custom-completions' \
   'zsh-completions' \
