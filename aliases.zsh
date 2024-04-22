@@ -19,7 +19,7 @@ if [ -x "$(command -v eza)" ]; then
     alias la="eza --header --long --all --group --icons auto"
 fi
 
-#if [ "$TERM" = "xterm-kitty" ]; then
-#    alias ssh="kitty +kitten ssh"
-#fi
+if [ "$TERM" = "xterm-kitty" ]; then
+   alias ssh="kitty +kitten ssh"
+fi
 
