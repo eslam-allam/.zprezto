@@ -4,6 +4,7 @@ alias zprezto="${EDITOR} ~/.zpreztorc"
 alias zprezto-config="${EDITOR} ~/.zprezto/config.zsh"
 alias kittyconf="${EDITOR} ~/.config/kitty/kitty.conf"
 alias env-config="${EDITOR} ~/.zprezto/env.zsh"
+alias tmuxk="tmux kill-server"
 
 alias v="open_editor_in_file $EDITOR"
 alias lv="open_editor_in_file ~/.local/bin/lvim"
