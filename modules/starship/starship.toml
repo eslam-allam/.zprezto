@@ -17,6 +17,9 @@ format = 'on [$symbol($profile )(\($region\) )]($style)'
 style = 'bold blue'
 symbol = "  "
 
+[gcloud]
+symbol = "Ⓖ  "
+
 [golang]
 format = '[ ](bold cyan)'
 
