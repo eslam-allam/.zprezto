@@ -8,6 +8,12 @@ source /etc/profile.d/maven.sh
 export XDG_CONFIG_HOME=~/.config
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#bcbcbc,bold,underline"
 
+# Tmux
+
+if [ -n "$TMUX" ]; then
+  export SSH_ASKPASS="${ZDOTDIR:-$HOME/.zprezto/scripts/askpass.sh}"
+fi
+
 # Binraries
 
 export PATH=$PATH:$(go env GOPATH)/bin
