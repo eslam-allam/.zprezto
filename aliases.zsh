@@ -20,7 +20,7 @@ if [ -x "$(command -v eza)" ]; then
     alias la="eza --header --long --all --group --icons auto"
 fi
 
-if [ "$TERM" = "xterm-kitty" ]; then
+if [ -n "$KITTY_PID" ]; then
    alias ssh="kitty +kitten ssh"
 fi
 
