@@ -41,3 +41,6 @@
 [submodule "modules/zsh-completions"]
 	path = modules/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "zsh-autocomplete"]
+	path = zsh-autocomplete
+	url = https://github.com/marlonrichert/zsh-autocomplete.git
