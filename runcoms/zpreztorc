@@ -42,15 +42,14 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'catpuccin-zsh-syntax' \
   'syntax-highlighting' \
-  'custom-completions' \
   'gcloud' \
-  'zsh-completions' \
   'docker' \
   'conda-zsh-completion' \
-  'zsh-autosuggestions' \
-  'stripe' \
+  'tmux' \
+  'custom-completions' \
+  'completion' \
   'zsh-autocomplete' \
-  'tmux'
+  'autosuggestions'
 
 #
 # Autosuggestions
