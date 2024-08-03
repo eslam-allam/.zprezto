@@ -12,6 +12,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#bcbcbc,bold,underline"
 
 if [ -n "$TMUX" ]; then
   export SSH_ASKPASS="${ZDOTDIR:-$HOME/.zprezto/scripts/askpass.sh}"
+  export TERM='tmux-256color'
 fi
 
 # Binraries
