@@ -24,3 +24,7 @@ if [ -n "$KITTY_PID" ]; then
    alias ssh="kitty +kitten ssh"
 fi
 
+# Gradle gradlew completion support
+gradlew() {
+    PATH=$PATH:$(pwd) ./gradlew "$@"
+}
