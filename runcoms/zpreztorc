@@ -46,6 +46,7 @@ zstyle ':prezto:load' pmodule \
   'gcloud' \
   'docker' \
   'conda-zsh-completion' \
+  'gradle-completion' \
   'tmux' \
   'custom-completions' \
   'zsh-autocomplete' \
