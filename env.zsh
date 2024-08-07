@@ -1,7 +1,12 @@
 #Sources
 
-source /etc/profile.d/gradle.sh
-source /etc/profile.d/maven.sh
+if [ -f /etc/profile.d/gradle.sh ]; then
+  source /etc/profile.d/gradle.sh
+fi
+
+if [ -f /etc/profile.d/maven.sh ]; then
+  source /etc/profile.d/maven.sh
+fi
 
 # Config
 
@@ -17,6 +22,9 @@ fi
 
 # Binraries
 
-export PATH=$PATH:$(go env GOPATH)/bin
+if [ -x "$(command -v go)" ]; then
+  export PATH=$PATH:$(go env GOPATH)/bin
+fi
+
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
