@@ -48,6 +48,7 @@ zstyle ':prezto:load' pmodule \
   'conda-zsh-completion' \
   'gradle-completion' \
   'tmux' \
+  'zsh-completions' \
   'custom-completions' \
   'zsh-autocomplete' \
   'autosuggestions'
