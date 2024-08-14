@@ -4,7 +4,10 @@
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-
+# Do not move this debug line !!!
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zmodload zsh/zprof
+fi
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -41,3 +44,10 @@ if [[ -s "$HOME/.atuin/bin/env" ]]; then
   . "$HOME/.atuin/bin/env"
   eval "$(atuin init zsh)"
 fi
+
+
+# This must always be ath the end of the file!!
+if [ -n "${ZSH_DEBUGRC+1}" ]; then
+    zprof
+fi
+alias zsh-profile='time ZSH_DEBUGRC=1 zsh -i -c exit'
