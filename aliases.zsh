@@ -28,3 +28,10 @@ fi
 gradlew() {
     PATH=$PATH:$(pwd) ./gradlew "$@"
 }
+
+# Minikube docker
+# # Activate
+if [ -x "$(command -v minikube)" ]; then
+  alias mka="eval $(minikube -p minikube docker-env)"
+  alias mkd="eval $(minikube -p minikube docker-env -u)"
+fi
