@@ -35,14 +35,9 @@ if [[ -s "${ZDOTDIR:-$HOME/.zprezto/env.zsh}" ]]; then
   source "${ZDOTDIR:-$HOME/.zprezto/env.zsh}"
 fi
 
-# Source zoxide
-if command -v zoxide &> /dev/null; then
-  eval "$(zoxide init zsh --cmd cd)"
-fi
-
-if [[ -s "$HOME/.atuin/bin/env" ]]; then
-  . "$HOME/.atuin/bin/env"
-  eval "$(atuin init zsh)"
+# Source Post Login Tools
+if [[ -s "${ZDOTDIR:-$HOME/.zprezto/tools.zsh}" ]]; then
+  source "${ZDOTDIR:-$HOME/.zprezto/tools.zsh}"
 fi
 
 
@@ -50,4 +45,6 @@ fi
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zprof
 fi
+
+
 alias zsh-profile='time ZSH_DEBUGRC=1 zsh -i -c exit'
