@@ -51,7 +51,8 @@ zstyle ':prezto:load' pmodule \
   'zsh-completions' \
   'custom-completions' \
   'zsh-autocomplete' \
-  'autosuggestions'
+  'autosuggestions' \
+  'zsh-ssh'
 
 #
 # Autosuggestions
