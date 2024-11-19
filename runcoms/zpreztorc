@@ -43,10 +43,8 @@ zstyle ':prezto:load' pmodule \
   'git' \
   'catpuccin-zsh-syntax' \
   'syntax-highlighting' \
-  'gcloud' \
   'docker' \
   'conda-zsh-completion' \
-  'gradle-completion' \
   'tmux' \
   'zsh-completions' \
   'custom-completions' \
@@ -66,7 +64,7 @@ zstyle ':prezto:load' pmodule \
 #
 
 # Display subcommand completion in groups
-zstyle ":conda_zsh_completion:*" use-groups true 
+zstyle ":conda_zsh_completion:*" use-groups true
 
 #
 # Completions
