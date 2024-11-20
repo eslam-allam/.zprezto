@@ -48,7 +48,7 @@ zstyle ':prezto:load' pmodule \
   'tmux' \
   'zsh-completions' \
   'custom-completions' \
-  'zsh-autocomplete' \
+  'completion' \
   'autosuggestions' \
   'zsh-ssh'
 
