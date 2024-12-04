@@ -1,1 +1,1 @@
-bindkey '^I' autosuggest-accept
+bindkey '^N' autosuggest-accept
