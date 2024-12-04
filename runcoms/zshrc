@@ -40,6 +40,10 @@ if [[ -s "${ZDOTDIR:-$HOME/.zprezto/tools.zsh}" ]]; then
   source "${ZDOTDIR:-$HOME/.zprezto/tools.zsh}"
 fi
 
+# Source Post Login Tools
+if [[ -s "${ZDOTDIR:-$HOME/.zprezto/keybinds.zsh}" ]]; then
+  source "${ZDOTDIR:-$HOME/.zprezto/keybinds.zsh}"
+fi
 
 # This must always be ath the end of the file!!
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
