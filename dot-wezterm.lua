@@ -70,6 +70,18 @@ table.insert(keys, {
 })
 
 table.insert(keys, {
+	key = "c",
+	mods = "SHIFT|CTRL",
+	action = wezterm.action.CopyTo("ClipboardAndPrimarySelection"),
+})
+
+table.insert(keys, {
+	key = "v",
+	mods = "SHIFT|CTRL",
+	action = act.PasteFrom("Clipboard"),
+})
+
+table.insert(keys, {
 	key = "[",
 	mods = "LEADER|CTRL",
 	action = wezterm.action.ActivateCopyMode,
