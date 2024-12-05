@@ -64,10 +64,61 @@ if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   config.default_prog = { "C:/Program Files/Git/bin/bash.exe" }
 end
 
+-- Plugins
+local workspace_switcher = wezterm.plugin.require("https://github.com/MLFlexer/smart_workspace_switcher.wezterm")
+table.insert(keys, {
+    key = "o",
+    mods = "LEADER",
+    action = workspace_switcher.switch_workspace(),
+  })
+
+local resurrect = wezterm.plugin.require("https://github.com/MLFlexer/resurrect.wezterm")
+table.insert(keys, {
+    key = "s",
+    mods = "LEADER|CTRL",
+    action = wezterm.action_callback(function(win, pane)
+        resurrect.save_state(resurrect.workspace_state.get_workspace_state())
+      end),
+  })
+table.insert(keys,  {
+    key = "r",
+    mods = "LEADER|CTRL",
+    action = wezterm.action_callback(function(win, pane)
+      resurrect.fuzzy_load(win, pane, function(id, label)
+        local type = string.match(id, "^([^/]+)") -- match before '/'
+        id = string.match(id, "([^/]+)$") -- match after '/'
+        id = string.match(id, "(.+)%..+$") -- remove file extention
+        local opts = {
+          relative = true,
+          restore_text = true,
+          on_pane_restore = resurrect.tab_state.default_on_pane_restore,
+        }
+        if type == "workspace" then
+          local state = resurrect.load_state(id, "workspace")
+          resurrect.workspace_state.restore_workspace(state, opts)
+        elseif type == "window" then
+          local state = resurrect.load_state(id, "window")
+          resurrect.window_state.restore_window(pane:window(), state, opts)
+        elseif type == "tab" then
+          local state = resurrect.load_state(id, "tab")
+          resurrect.tab_state.restore_tab(pane:tab(), state, opts)
+        end
+      end)
+    end),
+  })
+
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+tabline.setup({
+  extensions = {'smart_workspace_switcher', 'resurrect'}
+})
+tabline.apply_to_config(config)
+
+---
+
 --- Default config settings
 config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font("JetBrainsMono Nerd Font")
-config.font_size = 10
+config.font_size = 12
 config.launch_menu = launch_menu
 config.default_cursor_style = "BlinkingBar"
 config.disable_default_key_bindings = true
@@ -76,8 +127,11 @@ config.mouse_bindings = mouse_bindings
 
 config.window_background_opacity = 0.9
 
-local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
-tabline.setup()
-tabline.apply_to_config(config)
+wezterm.on('gui-startup', function(cmd)
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
+---
+
 
 return config
