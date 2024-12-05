@@ -7,7 +7,7 @@ local config = {}
 local keys = {}
 
 local key_tables = {}
-local copy_mode_keys = {}
+local copy_mode_keys = wezterm.gui.default_key_tables().copy_mode
 key_tables.copy_mode = copy_mode_keys
 
 local mouse_bindings = {}
@@ -70,21 +70,18 @@ table.insert(keys, {
 })
 
 table.insert(keys, {
-  key = "[",
-  mods = "LEADER|CTRL",
-  action = wezterm.action.ActivateCopyMode,
+	key = "[",
+	mods = "LEADER|CTRL",
+	action = wezterm.action.ActivateCopyMode,
 })
 
 --- COPY MODE
 
+table.insert(copy_mode_keys, { key = "PageDown", mods = "NONE", action = act.CopyMode("PageDown") })
+table.insert(copy_mode_keys, { key = "d", mods = "CTRL", action = act.CopyMode("PageDown") })
 
-copy_mode_keys = wezterm.gui.default_key_tables().copy_mode
-
-table.insert(copy_mode_keys, { key = 'PageDown', mods = 'NONE', action = act.CopyMode 'PageDown' })
-table.insert(copy_mode_keys, { key = 'd', mods = 'CTRL', action = act.CopyMode 'PageDown' })
-
-table.insert(copy_mode_keys, { key = 'PageUp', mods = 'NONE', action = act.CopyMode 'PageUp' })
-table.insert(copy_mode_keys, { key = 'u', mods = 'CTRL', action = act.CopyMode 'PageUp' })
+table.insert(copy_mode_keys, { key = "PageUp", mods = "NONE", action = act.CopyMode("PageUp") })
+table.insert(copy_mode_keys, { key = "u", mods = "CTRL", action = act.CopyMode("PageUp") })
 
 ---
 
