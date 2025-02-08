@@ -22,9 +22,6 @@
 [submodule "modules/gradle-completion"]
 	path = modules/gradle-completion
 	url = https://github.com/gradle/gradle-completion
-[submodule "modules/zsh-completions"]
-	path = modules/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions.git
 [submodule "modules/zsh-ssh"]
 	path = modules/zsh-ssh
 	url = https://github.com/sunlei/zsh-ssh.git
