@@ -46,7 +46,6 @@ zstyle ':prezto:load' pmodule \
   'docker' \
   'conda-zsh-completion' \
   'tmux' \
-  'zsh-completions' \
   'custom-completions' \
   'completion' \
   'autosuggestions' \
