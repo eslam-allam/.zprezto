@@ -20,7 +20,7 @@ if [ -x "$(command -v eza)" ]; then
     alias la="eza --header --long --all --group --icons auto"
 fi
 
-if [ -n "$KITTY_PID" ]; then
+if [ -n "$KITTY_PID" ] && [ -z "$TMUX" ]; then
    alias ssh="kitty +kitten ssh"
 fi
 
