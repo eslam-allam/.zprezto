@@ -7,7 +7,6 @@ conda ()
   else
     source "${ZDOTDIR:-$HOME/.zprezto/conda.generic.zsh}"
   fi
-  export CONDA_ACTIVE=1
   unset -f conda
   conda "$@"
 }
