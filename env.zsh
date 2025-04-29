@@ -23,3 +23,8 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
 export PANDOC_CONFIG="$HOME/.pandoc"
+
+if [ -x "$(command -v asdf)" ] && [ -d "$HOME/.asdf" ] ; then
+  export ASDF_DATA_DIR="$HOME/.asdf"
+  export PATH="$ASDF_DATA_DIR/shims:$PATH"
+fi
