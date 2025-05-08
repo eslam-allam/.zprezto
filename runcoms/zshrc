@@ -16,7 +16,7 @@ fi
 
 # Customize to your needs...
 # Source Conda
-if [[ -s "${ZDOTDIR:-$HOME/.zprezto/conda.zsh}" ]] && command -v conda &> /dev/null ; then
+if [[ -s "${ZDOTDIR:-$HOME/.zprezto/conda.zsh}" ]]; then
   source "${ZDOTDIR:-$HOME/.zprezto/conda.zsh}"
 fi
 
