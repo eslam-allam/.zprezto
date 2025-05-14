@@ -30,3 +30,8 @@ if [ -x "$(command -v minikube)" ]; then
   alias mka="eval $(minikube -p minikube docker-env)"
   alias mkd="eval $(minikube -p minikube docker-env -u)"
 fi
+
+# TMUX workaround for euporie when using kitty
+if [ -x "$(command -v eza)" ] && [ -n "$TMUX" ] && [ -n "$KITTY_PID" ]; then
+    alias euporie="euporie --multiplexer-passthrough --force-graphics --graphics=kitty-unicode"
+fi
