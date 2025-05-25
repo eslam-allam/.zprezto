@@ -40,7 +40,6 @@ zstyle ':prezto:load' pmodule \
   'utility' \
   'history-substring-search' \
   'starship' \
-  'git' \
   'catpuccin-zsh-syntax' \
   'syntax-highlighting' \
   'docker' \
