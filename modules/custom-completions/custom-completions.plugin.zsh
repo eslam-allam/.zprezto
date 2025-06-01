@@ -1,2 +1,1 @@
-fpath+="${0:h}"
-. "${0:h}"/_rbw
+fpath+="${0:A:h}/src"
