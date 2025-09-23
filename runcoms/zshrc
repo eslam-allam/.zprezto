@@ -9,15 +9,19 @@ if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zmodload zsh/zprof
 fi
 
+# Source Conda/MicroMamba
+if [[ -s "${ZDOTDIR:-$HOME/.zprezto/python-env-manager.zsh}" ]]; then
+  source "${ZDOTDIR:-$HOME/.zprezto/python-env-manager.zsh}"
+fi
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-# Source Conda
-if [[ -s "${ZDOTDIR:-$HOME/.zprezto/conda.zsh}" ]]; then
-  source "${ZDOTDIR:-$HOME/.zprezto/conda.zsh}"
+# Source Post Login Tools
+if [[ -s "${ZDOTDIR:-$HOME/.zprezto/tools.zsh}" ]]; then
+  source "${ZDOTDIR:-$HOME/.zprezto/tools.zsh}"
 fi
 
 # Source config
@@ -35,12 +39,7 @@ if [[ -s "${ZDOTDIR:-$HOME/.zprezto/env.zsh}" ]]; then
   source "${ZDOTDIR:-$HOME/.zprezto/env.zsh}"
 fi
 
-# Source Post Login Tools
-if [[ -s "${ZDOTDIR:-$HOME/.zprezto/tools.zsh}" ]]; then
-  source "${ZDOTDIR:-$HOME/.zprezto/tools.zsh}"
-fi
-
-# Source Post Login Tools
+# Source keybinds
 if [[ -s "${ZDOTDIR:-$HOME/.zprezto/keybinds.zsh}" ]]; then
   source "${ZDOTDIR:-$HOME/.zprezto/keybinds.zsh}"
 fi
@@ -54,6 +53,5 @@ fi
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zprof
 fi
-
 
 alias zsh-profile='time ZSH_DEBUGRC=1 zsh -i -c exit'
