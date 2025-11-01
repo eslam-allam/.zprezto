@@ -49,6 +49,10 @@ if [[ -s "${ZDOTDIR:-$HOME/.zprezto/custom_functions.zsh}" ]]; then
   source "${ZDOTDIR:-$HOME/.zprezto/custom_functions.zsh}"
 fi
 
+if [[ -s "$HOME/.local/state/caelestia/sequences.txt" ]] && [[ -n "$(pgrep caelestia)" ]]; then
+  cat "$HOME/.local/state/caelestia/sequences.txt"
+fi
+
 # This must always be ath the end of the file!!
 if [ -n "${ZSH_DEBUGRC+1}" ]; then
     zprof
