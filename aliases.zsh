@@ -41,6 +41,5 @@ if command -v &> /dev/null man && command -v bat &> /dev/null; then
   man_old=$(which -p man)
   function man {
     "$man_old" $@ | bat --language=man -p;
-    exit 0;
   }
 fi
