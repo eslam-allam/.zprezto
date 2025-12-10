@@ -1,5 +1,5 @@
 if [[ -n $SSH_CONNECTION ]]; then
-	export EDITOR='nano'
+	export EDITOR='vi'
 else
 	if [ -x "$(command -v nvim)" ]; then
 		export EDITOR='nvim'
