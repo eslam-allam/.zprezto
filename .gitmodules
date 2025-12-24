@@ -33,3 +33,6 @@
 	path = modules/prompt/external/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
 	shallow = true
+[submodule "modules/zsh-vi-man"]
+	path = modules/zsh-vi-man
+	url = https://github.com/TunaCuma/zsh-vi-man

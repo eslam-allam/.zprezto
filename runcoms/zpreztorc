@@ -48,7 +48,8 @@ zstyle ':prezto:load' pmodule \
   'custom-completions' \
   'completion' \
   'autosuggestions' \
-  'zsh-ssh'
+  'zsh-ssh' \
+  'zsh-vi-man'
 
 #
 # Autosuggestions
