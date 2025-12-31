@@ -28,3 +28,7 @@ if [ -x "$(command -v asdf)" ] && [ -d "$HOME/.asdf" ] ; then
   export ASDF_DATA_DIR="$HOME/.asdf"
   export PATH="$ASDF_DATA_DIR/shims:$PATH"
 fi
+
+if [[ -d "$ANDROID_SDK_ROOT" ]]; then
+  export ANDROID_AVD_HOME="$HOME/.config/.android/avd"
+fi
