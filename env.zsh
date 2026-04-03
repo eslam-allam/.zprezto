@@ -32,3 +32,7 @@ fi
 if [[ -d "$ANDROID_SDK_ROOT" ]]; then
   export ANDROID_AVD_HOME="$HOME/.config/.android/avd"
 fi
+
+if [[ -x "$(command -v podman-compose)" ]]; then
+  export PODMAN_COMPOSE_WARNING_LOGS=false
+fi
