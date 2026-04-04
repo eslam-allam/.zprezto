@@ -36,3 +36,8 @@ fi
 if [[ -x "$(command -v podman-compose)" ]]; then
   export PODMAN_COMPOSE_WARNING_LOGS=false
 fi
+
+
+if [[ -x "$(command -v podman)" ]] && ( [[ -x "$(command -v podman-compose)" ]] || [[ ! -x "$(command -v docker)" ]] ); then
+  export DOCKER_HOST="unix://$XDG_RUNTIME_DIR/podman/podman.sock"
+fi
