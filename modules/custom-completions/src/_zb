@@ -1,0 +1,352 @@
+#compdef zb
+
+autoload -U is-at-least
+
+_zb() {
+    typeset -A opt_args
+    typeset -a _arguments_options
+    local ret=1
+
+    if is-at-least 5.2; then
+        _arguments_options=(-s -S -C)
+    else
+        _arguments_options=(-s -C)
+    fi
+
+    local context curcontext="$curcontext" state line
+    _arguments "${_arguments_options[@]}" : \
+'--root=[]:ROOT:_files' \
+'--prefix=[]:PREFIX:_files' \
+'--concurrency=[]:CONCURRENCY:_default' \
+'--auto-init[]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'-V[Print version]' \
+'--version[Print version]' \
+":: :_zb_commands" \
+"*::: :->zb" \
+&& ret=0
+    case $state in
+    (zb)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:zb-command-$line[1]:"
+        case $line[1] in
+            (install)
+_arguments "${_arguments_options[@]}" : \
+'--no-link[]' \
+'--auto-init[]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'*::formulas:_default' \
+&& ret=0
+;;
+(bundle)
+_arguments "${_arguments_options[@]}" : \
+'-f+[]:FILE:_files' \
+'--file=[]:FILE:_files' \
+'--no-link[]' \
+'--auto-init[]' \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(uninstall)
+_arguments "${_arguments_options[@]}" : \
+'--all[]' \
+'--auto-init[]' \
+'-h[Print help]' \
+'--help[Print help]' \
+'*::formulas:_default' \
+&& ret=0
+;;
+(migrate)
+_arguments "${_arguments_options[@]}" : \
+'-y[]' \
+'--yes[]' \
+'--force[]' \
+'--auto-init[]' \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" : \
+'--auto-init[]' \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(info)
+_arguments "${_arguments_options[@]}" : \
+'--auto-init[]' \
+'-h[Print help]' \
+'--help[Print help]' \
+':formula:_default' \
+&& ret=0
+;;
+(gc)
+_arguments "${_arguments_options[@]}" : \
+'--auto-init[]' \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(reset)
+_arguments "${_arguments_options[@]}" : \
+'-y[]' \
+'--yes[]' \
+'--auto-init[]' \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(init)
+_arguments "${_arguments_options[@]}" : \
+'--no-modify-path[]' \
+'--auto-init[]' \
+'-h[Print help]' \
+'--help[Print help]' \
+&& ret=0
+;;
+(completion)
+_arguments "${_arguments_options[@]}" : \
+'--auto-init[]' \
+'-h[Print help]' \
+'--help[Print help]' \
+':shell:(bash elvish fish powershell zsh)' \
+&& ret=0
+;;
+(run)
+_arguments "${_arguments_options[@]}" : \
+'--auto-init[]' \
+':formula:_default' \
+'*::args:_default' \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" : \
+":: :_zb__help_commands" \
+"*::: :->help" \
+&& ret=0
+
+    case $state in
+    (help)
+        words=($line[1] "${words[@]}")
+        (( CURRENT += 1 ))
+        curcontext="${curcontext%:*:*}:zb-help-command-$line[1]:"
+        case $line[1] in
+            (install)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(bundle)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(uninstall)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(migrate)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(list)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(info)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(gc)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(reset)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(init)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(completion)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(run)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+(help)
+_arguments "${_arguments_options[@]}" : \
+&& ret=0
+;;
+        esac
+    ;;
+esac
+;;
+        esac
+    ;;
+esac
+}
+
+(( $+functions[_zb_commands] )) ||
+_zb_commands() {
+    local commands; commands=(
+'install:' \
+'bundle:' \
+'uninstall:' \
+'migrate:' \
+'list:' \
+'info:' \
+'gc:' \
+'reset:' \
+'init:' \
+'completion:' \
+'run:' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'zb commands' commands "$@"
+}
+(( $+functions[_zb__bundle_commands] )) ||
+_zb__bundle_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb bundle commands' commands "$@"
+}
+(( $+functions[_zb__completion_commands] )) ||
+_zb__completion_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb completion commands' commands "$@"
+}
+(( $+functions[_zb__gc_commands] )) ||
+_zb__gc_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb gc commands' commands "$@"
+}
+(( $+functions[_zb__help_commands] )) ||
+_zb__help_commands() {
+    local commands; commands=(
+'install:' \
+'bundle:' \
+'uninstall:' \
+'migrate:' \
+'list:' \
+'info:' \
+'gc:' \
+'reset:' \
+'init:' \
+'completion:' \
+'run:' \
+'help:Print this message or the help of the given subcommand(s)' \
+    )
+    _describe -t commands 'zb help commands' commands "$@"
+}
+(( $+functions[_zb__help__bundle_commands] )) ||
+_zb__help__bundle_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help bundle commands' commands "$@"
+}
+(( $+functions[_zb__help__completion_commands] )) ||
+_zb__help__completion_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help completion commands' commands "$@"
+}
+(( $+functions[_zb__help__gc_commands] )) ||
+_zb__help__gc_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help gc commands' commands "$@"
+}
+(( $+functions[_zb__help__help_commands] )) ||
+_zb__help__help_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help help commands' commands "$@"
+}
+(( $+functions[_zb__help__info_commands] )) ||
+_zb__help__info_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help info commands' commands "$@"
+}
+(( $+functions[_zb__help__init_commands] )) ||
+_zb__help__init_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help init commands' commands "$@"
+}
+(( $+functions[_zb__help__install_commands] )) ||
+_zb__help__install_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help install commands' commands "$@"
+}
+(( $+functions[_zb__help__list_commands] )) ||
+_zb__help__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help list commands' commands "$@"
+}
+(( $+functions[_zb__help__migrate_commands] )) ||
+_zb__help__migrate_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help migrate commands' commands "$@"
+}
+(( $+functions[_zb__help__reset_commands] )) ||
+_zb__help__reset_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help reset commands' commands "$@"
+}
+(( $+functions[_zb__help__run_commands] )) ||
+_zb__help__run_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help run commands' commands "$@"
+}
+(( $+functions[_zb__help__uninstall_commands] )) ||
+_zb__help__uninstall_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb help uninstall commands' commands "$@"
+}
+(( $+functions[_zb__info_commands] )) ||
+_zb__info_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb info commands' commands "$@"
+}
+(( $+functions[_zb__init_commands] )) ||
+_zb__init_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb init commands' commands "$@"
+}
+(( $+functions[_zb__install_commands] )) ||
+_zb__install_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb install commands' commands "$@"
+}
+(( $+functions[_zb__list_commands] )) ||
+_zb__list_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb list commands' commands "$@"
+}
+(( $+functions[_zb__migrate_commands] )) ||
+_zb__migrate_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb migrate commands' commands "$@"
+}
+(( $+functions[_zb__reset_commands] )) ||
+_zb__reset_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb reset commands' commands "$@"
+}
+(( $+functions[_zb__run_commands] )) ||
+_zb__run_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb run commands' commands "$@"
+}
+(( $+functions[_zb__uninstall_commands] )) ||
+_zb__uninstall_commands() {
+    local commands; commands=()
+    _describe -t commands 'zb uninstall commands' commands "$@"
+}
+
+if [ "$funcstack[1]" = "_zb" ]; then
+    _zb "$@"
+else
+    compdef _zb zb
+fi
