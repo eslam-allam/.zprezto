@@ -45,3 +45,7 @@ fi
 if [[ -x "$(command -v pvm)" ]]; then
   eval "$(pvm init zsh)"
 fi
+
+if [[ -x "$(command -v direnv)" ]]; then
+  eval "$(direnv hook zsh)"
+fi
