@@ -49,7 +49,3 @@ fi
 if [[ -x "$(command -v direnv)" ]]; then
   eval "$(direnv hook zsh)"
 fi
-
-if [[ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
-fi
