@@ -49,3 +49,7 @@ fi
 if [[ -x "$(command -v direnv)" ]]; then
   eval "$(direnv hook zsh)"
 fi
+
+if [[ -x "$(command -v atuin)" ]]; then
+  eval "$(atuin init zsh)"
+fi
